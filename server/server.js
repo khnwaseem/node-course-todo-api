@@ -44,7 +44,7 @@ app.get('/todos/:id', (req,res) => {
 
 	Todo.findById(id).then((todo) => {
 		if(!todo) {
-			return res.send("Id is not found");
+			return res.status(404).send("Id is not found");
 		}
 	       res.send({todo});
 	}, (e) => {
